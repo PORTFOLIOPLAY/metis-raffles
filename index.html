@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Metis — The revenue operating system</title>
+<meta name="description" content="Metis watches every account, keeps the narrative alive, and surfaces the next move before the deal goes quiet."/>
+<link rel="icon" href="https://atlas-metis.com/logo-aa.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--stone:#E2E0D1;--paper:#F1F0E7;--ink:#0C1F1E;--ink2:#061514;--sage:#3D4A48;--mist:#727C74;--blush:#D5C0B5;--line:#CFCBB8}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Instrument Sans",sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+header{position:fixed;inset:0 0 auto;z-index:30;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 28px;background:rgba(241,240,231,.92);backdrop-filter:blur(8px)}
+.nav-left,.nav-right{display:flex;align-items:center;gap:22px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
+.nav-right{justify-content:flex-end}
+.wordmark{display:flex;align-items:center;gap:10px;color:var(--ink)}
+.wordmark img{width:26px;height:26px;object-fit:contain}
+.wordmark b{font-family:"Instrument Serif",serif;font-weight:400;font-size:22px;letter-spacing:.32em}
+.hero{position:relative;height:100svh;min-height:640px;color:#fff;overflow:hidden}
+.hero img{position:absolute;inset:0;filter:brightness(.68)}
+.hero-copy{position:absolute;inset:auto 0 180px;text-align:center;padding:0 24px}
+.hero-copy h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(42px,6.4vw,82px);line-height:.95}
+.hero-copy h1 em{font-style:italic}
+.play{position:absolute;right:28px;bottom:210px;width:56px;height:56px;border:1px solid rgba(255,255,255,.7);border-radius:50%;display:grid;place-items:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.book{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);width:min(1080px,calc(100% - 32px));background:#fff;color:var(--ink);display:grid;grid-template-columns:1.3fr 1fr 1fr auto;align-items:end;gap:12px;padding:16px 18px}
+.book label{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);margin-bottom:8px}
+.book .field{border-bottom:1px solid var(--line);padding:0 0 8px;font-size:15px;min-height:28px}
+.book button{background:var(--ink);color:var(--paper);border:0;padding:16px 22px;font:500 11px/1 "Instrument Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+section{padding:92px 0}
+.wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+.kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);margin-bottom:14px}
+h2{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(36px,5vw,64px);line-height:1.02}
+h2 em{font-style:italic}
+.lead{max-width:640px;margin-top:18px;color:var(--sage);font-size:17px;line-height:1.7}
+.discover{display:inline-block;margin-top:22px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:3px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.card{background:#fff}
+.card .ph{height:280px}
+.card .body{padding:22px 20px 28px}
+.card h3{font-family:"Instrument Serif",serif;font-size:30px;font-weight:400;margin-bottom:8px}
+.card p{color:var(--sage);font-size:15px;line-height:1.6}
+.manifesto{background:var(--stone);text-align:center;padding:120px 24px}
+.manifesto p{max-width:720px;margin:22px auto 0;color:var(--sage);line-height:1.75;font-size:18px}
+.campaign{position:relative;min-height:70vh;color:#fff;display:grid;place-items:center;text-align:center}
+.campaign img{position:absolute;inset:0;filter:brightness(.5)}
+.campaign .inner{position:relative;z-index:1;padding:40px 24px}
+.split{display:grid;grid-template-columns:1.1fr .9fr;min-height:70vh}
+.split .ph{min-height:420px}
+.split .txt{display:flex;flex-direction:column;justify-content:center;padding:64px 56px;background:var(--paper)}
+.exp{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line)}
+.exp a{padding:36px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.exp a:nth-child(3n){border-right:0}
+.exp h3{font-family:"Instrument Serif",serif;font-size:28px;margin:8px 0 10px}
+.exp p{color:var(--sage);font-size:14px;line-height:1.6}
+.history{text-align:center}
+.history .ph{margin-top:36px;height:52vh;min-height:320px;position:relative}
+.history .ph span{position:absolute;inset:0;display:grid;place-items:center;color:#fff;letter-spacing:.18em;text-transform:uppercase;font-size:12px;background:rgba(6,21,20,.28)}
+.news{background:var(--stone);text-align:center}
+.news form{margin:28px auto 0;display:flex;width:min(480px,100%)}
+.news input{flex:1;border:0;border-bottom:1px solid var(--ink);background:transparent;padding:12px 0;font:16px "Instrument Sans",sans-serif}
+.news button{border:0;background:transparent;border-bottom:1px solid var(--ink);padding:12px 16px;letter-spacing:.14em;text-transform:uppercase;font:500 12px "Instrument Sans",sans-serif}
+footer{border-top:1px solid var(--line);padding:48px 0 36px}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+footer b{display:block;font-weight:500;letter-spacing:.16em;text-transform:uppercase;font-size:11px;margin-bottom:14px}
+footer a{display:block;color:var(--sage);margin:8px 0;font-size:14px}
+.legal{margin-top:36px;color:var(--mist);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:900px){
+.nav-left span,.nav-right a:not(.cta){display:none}
+.book,.cards,.split,.exp,.foot{grid-template-columns:1fr}
+.book button{width:100%}
+.hero-copy{bottom:290px}
+.split .txt{padding:40px 24px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-left"><span>Explore</span></div>
+  <a class="wordmark" href="#">
+    <img src="https://atlas-metis.com/logo-aa.png" alt="Metis"/>
+    <b>METIS</b>
+  </a>
+  <div class="nav-right">
+    <a href="#system">System</a>
+    <a class="cta" href="https://tidycal.com/atlas-jordan-maxine/discovery" target="_blank" rel="noopener">Request access</a>
+  </div>
+</header>
+<section class="hero" style="padding:0">
+  <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2400&q=80" alt=""/>
+  <div class="hero-copy">
+    <h1>A <em>system</em> of attention<br/>for revenue teams.</h1>
+  </div>
+  <a class="play" href="#history">Play</a>
+  <form class="book" action="https://tidycal.com/atlas-jordan-maxine/discovery" method="get" target="_blank">
+    <div><label>Region</label><div class="field">Select a market</div></div>
+    <div><label>Focus</label><div class="field">Accounts in motion</div></div>
+    <div><label>Intent</label><div class="field">Next best move</div></div>
+    <button type="submit">Request access</button>
+  </form>
+</section>
+<section id="system">
+  <div class="wrap">
+    <div class="kicker">The system</div>
+    <h2>Places where <em>pipeline</em> still lives</h2>
+    <p class="lead">From heritage accounts to the ones that went quiet last quarter, Metis keeps every conversation in view — and tells you which one to touch next.</p>
+    <a class="discover" href="#experiences">Discover</a>
+    <div class="cards">
+      <article class="card">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=80" alt=""/></div>
+        <div class="body"><h3>Watch</h3><p>Hiring, funding, vendor reviews, champion moves. Signals land when they fire.</p><a class="discover" href="#experiences">Discover</a></div>
+      </article>
+      <article class="card">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80" alt=""/></div>
+        <div class="body"><h3>Remember</h3><p>A living narrative on every account. Context survives the person who left.</p><a class="discover" href="#experiences">Discover</a></div>
+      </article>
+      <article class="card">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80" alt=""/></div>
+        <div class="body"><h3>Act</h3><p>The next move, drafted for a human. Ready to send. Never on autopilot.</p><a class="discover" href="#experiences">Discover</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="manifesto">
+  <div class="kicker">Metis</div>
+  <h2>A <em>world</em> of signal,<br/>memory and next moves</h2>
+  <p>Built in the field across five years of outbound. Metis is the revenue operating system for teams closing complex, high-value work — so no deal quietly dies.</p>
+  <a class="discover" href="https://tidycal.com/atlas-jordan-maxine/discovery" target="_blank" rel="noopener">Our system</a>
+</section>
+<section class="campaign" style="padding:0">
+  <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2400&q=80" alt=""/>
+  <div class="inner">
+    <div class="kicker" style="color:#fff">Introducing</div>
+    <h2>The <em>Terminal</em><br/>with Metis</h2>
+    <a class="discover" style="color:#fff;border-color:#fff" href="#history">Discover</a>
+  </div>
+</section>
+<section id="experiences" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="kicker">Capabilities</div>
+    <h2>Encounters crafted for the <em>curious</em> operator</h2>
+    <p class="lead">Adventures in attention. The work is still human. The system never looks away.</p>
+    <a class="discover" href="https://tidycal.com/atlas-jordan-maxine/discovery" target="_blank" rel="noopener">Explore the system</a>
+  </div>
+  <div class="exp" style="margin-top:48px">
+    <a href="#"><div class="kicker">01</div><h3>Signals</h3><p>Every account watched continuously across markets.</p></a>
+    <a href="#"><div class="kicker">02</div><h3>Narratives</h3><p>A living brief that compounds instead of rotting in a CRM.</p></a>
+    <a href="#"><div class="kicker">03</div><h3>Outreach</h3><p>The next conversation, drafted the moment a trigger fires.</p></a>
+    <a href="#"><div class="kicker">04</div><h3>Strategist</h3><p>A human who runs the loop with you. Not a vendor who leaves.</p></a>
+    <a href="#"><div class="kicker">05</div><h3>Memory</h3><p>Institutional context that survives team change.</p></a>
+    <a href="#"><div class="kicker">06</div><h3>Proof</h3><p>200+ clients. 500+ deals. 100% self-sourced pipeline.</p></a>
+  </div>
+</section>
+<section class="split" style="padding:0">
+  <div class="ph"><img src="https://images.unsplash.com/photo-1519167758481-83f29da8492b?auto=format&fit=crop&w=1600&q=80" alt=""/></div>
+  <div class="txt">
+    <div class="kicker">Before you even think to ask</div>
+    <h2>The <em>operator</em> did it.</h2>
+    <p class="lead">A dedicated Revenue Strategist keeps the narrative current and puts the next move on the desk — the way a great house anticipates the guest.</p>
+    <a class="discover" href="https://tidycal.com/atlas-jordan-maxine/discovery" target="_blank" rel="noopener">Discover</a>
+  </div>
+</section>
+<section class="history" id="history">
+  <div class="wrap">
+    <div class="kicker">Origin</div>
+    <h2>Discover the storied <em>work</em> behind Metis</h2>
+    <p class="lead" style="margin-left:auto;margin-right:auto">Five years building B2B pipelines by hand. Then encoded into a system that gets sharper the longer it runs.</p>
+    <a class="discover" href="https://tidycal.com/atlas-jordan-maxine/discovery" target="_blank" rel="noopener">See the brief</a>
+    <div class="ph"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80" alt=""/><span>Play video</span></div>
+  </div>
+</section>
+<section class="news">
+  <div class="wrap">
+    <div class="kicker">The weekly brief</div>
+    <h2>Inspiration to your <em>inbox</em></h2>
+    <p class="lead" style="margin-left:auto;margin-right:auto">Sign up for the sales brief operators actually read.</p>
+    <form action="https://tidycal.com/atlas-jordan-maxine/discovery" method="get" target="_blank">
+      <input type="email" placeholder="Email address" required/>
+      <button type="submit">Stay in touch</button>
+    </form>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="wordmark"><img src="https://atlas-metis.com/logo-aa.png" alt="" style="width:26px;height:26px"/><b>METIS</b></div>
+      <div><b>Explore</b><a href="#system">System</a><a href="#experiences">Capabilities</a><a href="#history">Origin</a></div>
+      <div><b>Connect</b><a href="https://tidycal.com/atlas-jordan-maxine/discovery" target="_blank" rel="noopener">Request access</a><a href="https://terminal.atlas-metis.com/" target="_blank" rel="noopener">Terminal</a></div>
+    </div>
+    <div class="legal"><span>Metis · The revenue operating system</span><span>Layout study after Raffles.com</span></div>
+  </div>
+</footer>
+</body>
+</html>
